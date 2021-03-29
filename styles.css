@@ -1,0 +1,92 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: steelblue;
+    height: 100vh;
+}
+#controls label {
+    width: 1000px;
+    height: 1000px;
+    position: absolute;
+    top: 50%;
+    left: -15%;
+    display: none;
+
+    transition: opacity 0.3s linear;
+}
+.slider {
+    width: 800px;
+    height: 300px;
+    position: relative;
+}
+.slider input[type='radio'] {
+    display: none;
+}
+.overflow {
+    width: inherit;
+    height: inherit;
+    overflow: hidden;
+}
+.slides {
+    width: inherit;
+    height: inherit;
+    display: flex;
+    gap: 34;
+   
+}
+.slides .card {
+    
+    width: 30%;
+    height: 100%;
+    margin: .5em;
+}
+.slides .card {
+    flex: none;
+    transition: transform 0.5s linear;
+}
+
+.slider #slide1:checked ~ .overflow .slides > .card {
+    transform: translateX(0%);
+}
+.slider #slide2:checked ~ .overflow .slides > .card {
+    transform: translateX(calc(-100% - 1em));
+}
+.slider #slide3:checked ~ .overflow .slides > .card {
+    transform: translateX(calc(-200% - 1em));
+}
+
+.slider #slide1:checked ~ #controls label:nth-child(2),
+.slider #slide2:checked ~ #controls label:nth-child(3),
+.slider #slide3:checked ~ #controls label:nth-child(1) {
+    background-image: url(https://www.flaticon.com/svg/vstatic/svg/25/25638.svg?token=exp=1612414360~hmac=e3874a88cce776506d5bc501a2a6bc79);
+        background-repeat: no-repeat;
+    
+    background-size: cover;
+    display: block;
+    opacity: 1;
+    top: 50%;
+    left: 100%;
+}
+.slider #slide2:checked ~ #controls label:nth-child(1),
+.slider #slide3:checked ~ #controls label:nth-child(2),
+.slider #slide1:checked ~ #controls label:nth-child(3) {
+    background-image: url(https://www.flaticon.com/svg/vstatic/svg/25/25322.svg?token=exp=1612417237~hmac=dfbf18f887cc2a068bf5ae3035280a1c);
+    background-repeat: no-repeat;
+    top: 50%;
+    left: -15%;
+    background-size: cover;
+    display: block;
+    opacity: 1;
+}
+
+.slides .card:nth-child(1) {
+    background-color: #62959c;
+}
+
+.slides .card:nth-child(2) {
+    background-color: #c19277;
+}
+.slides .card:nth-child(3) {
+    background-color: #e1bc91;
+}
